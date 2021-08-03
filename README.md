@@ -1,4 +1,4 @@
-# Task for a candidate .NET developer
+# Task for a candidate frontend developer
 
 ### HTML/CSS
 Implement the presented design (appreciate the attention to the details) using HTML5 and CSS3.  
