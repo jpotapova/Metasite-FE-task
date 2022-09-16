@@ -6,7 +6,7 @@ Fonts used in the project:
 - Open Sans  
 - FontAwesome  
 
-Download the design files from [here](https://contactify-api.herokuapp.com/api/download/design).
+Download the design files from this repository (/design).
 
 ### JS
 Display contact list from the API (documentation can be found [here](https://contactify-api.herokuapp.com/docs)).
