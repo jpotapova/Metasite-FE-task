@@ -9,7 +9,8 @@ Fonts used in the project:
 Download the design files from [here](https://github.com/Metasiteorg/frontend-task/tree/main/design).
 
 ### JS
-Display contact list from the API (documentation can be found [here](http://frontend-task.metasite.lt/docs/)).
+Display contact list from the API.
+API ocumentation can be found [HERE](https://frontend-task-api.metasite.lt/docs/) (if the link does not work, use this unencrypted [one](http://frontend-task.m3tasite.net/docs/)).
 
 We will give additional points for:
 - data sorting functionality by name (sort must be two-ways);
