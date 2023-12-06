@@ -13,12 +13,13 @@ Display contact list from the API.
 API ocumentation can be found [HERE](https://frontend-task-api.metasite.lt/docs/) (if the link does not work, use this unencrypted [one](http://frontend-task.m3tasite.net/docs/)).
 
 We will give additional points for:
-- data sorting functionality by name (sort must be two-ways);
+- data sorting functionality by name and city (sort must be two-ways);
 - data filtering by name / city / activity;
 - functionality of displaying the data of the selected contact in the viewing area (separate loading of data according to the selected ID from the API would be an advantage);
 - table columns hide / show functionality;
 - linters with rules and code formatters;
 - tests;
+- deploying app to gh pages or any other environment;
 - React / Angular and a correct usage of its API ([react](https://reactjs.org/docs/react-api.html)/[angular](https://angular.io/api)).
 
 ### We will evaluate:
