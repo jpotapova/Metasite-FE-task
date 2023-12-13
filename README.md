@@ -10,7 +10,7 @@ Download the design files from [here](https://github.com/Metasiteorg/frontend-ta
 
 ### JS
 Display contact list from the API.
-API ocumentation can be found [HERE](https://frontend-task-api.metasite.lt/docs/) (if the link does not work, use this unencrypted [one](http://frontend-task.m3tasite.net/docs/)).
+API ocumentation can be found [HERE](https://frontend-task-api.metasite.lt/docs/).
 
 We will give additional points for:
 - data sorting functionality by name and city (sort must be two-ways);
