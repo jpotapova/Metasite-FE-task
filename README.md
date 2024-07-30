@@ -3,7 +3,7 @@
 ### HTML/CSS
 Implement the presented design (appreciate the attention to the details) using HTML5 and CSS3.  
 Fonts used in the project:  
-  - Open Sans
+  - Open Sans
   - Roboto
   - FontAwesome  
 
