@@ -5,7 +5,7 @@ Implement the presented design (appreciate the attention to the details) using H
 Fonts used in the project:  
   - Open Sans
   - Roboto
-  - FontAwesome  
+  - FontAwesome  
 
 Download the design files from [here](https://github.com/Metasiteorg/frontend-task/tree/main/design).
 
