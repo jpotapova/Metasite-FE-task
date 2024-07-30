@@ -3,9 +3,9 @@
 ### HTML/CSS
 Implement the presented design (appreciate the attention to the details) using HTML5 and CSS3.  
 Fonts used in the project:  
-- Open Sans
-- Roboto
-- FontAwesome  
+  - Open Sans
+  - Roboto
+  - FontAwesome  
 
 Download the design files from [here](https://github.com/Metasiteorg/frontend-task/tree/main/design).
 
