@@ -1,7 +1,7 @@
-import Button from "@mui/material/Button";
+import { List } from "@pages/List";
 
 function App() {
-  return <Button variant="contained">Hello world</Button>;
+  return <List />;
 }
 
 export default App;
