@@ -45,6 +45,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       field: "isActive",
       headerName: "Active",
       renderHeader: () => <VisibilityIcon />,
+      renderCell: (params) => (params.value ? <VisibilityIcon /> : null),
     },
     {
       ...MIN_COLUMN_DEFINITION,
@@ -57,6 +58,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       headerName: "Phone",
     },
     {
+      disableColumnMenu: true,
       field: "actions",
       headerName: "",
       renderHeader: () => (
