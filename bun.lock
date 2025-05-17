@@ -13,6 +13,7 @@
         "@reduxjs/toolkit": "^2.8.2",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
+        "react-redux": "^9.2.0",
       },
       "devDependencies": {
         "@eslint/js": "^9.25.0",
@@ -26,6 +27,7 @@
         "eslint-plugin-react-x": "^1.49.0",
         "eslint-plugin-simple-import-sort": "^12.1.1",
         "globals": "^16.0.0",
+        "lefthook": "^1.11.13",
         "prettier": "3.5.3",
         "typescript": "~5.8.3",
         "typescript-eslint": "^8.30.1",
@@ -296,6 +298,8 @@
 
     "@types/react-transition-group": ["@types/react-transition-group@4.4.12", "", { "peerDependencies": { "@types/react": "*" } }, "sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w=="],
 
+    "@types/use-sync-external-store": ["@types/use-sync-external-store@0.0.6", "", {}, "sha512-zFDAD+tlpf2r4asuHEj0XH6pY6i0g5NeAHPn+15wk3BV6JA69eERFXC1gyGThDkVa1zCyKr5jox1+2LbV/AMLg=="],
+
     "@typescript-eslint/eslint-plugin": ["@typescript-eslint/eslint-plugin@8.32.1", "", { "dependencies": { "@eslint-community/regexpp": "^4.10.0", "@typescript-eslint/scope-manager": "8.32.1", "@typescript-eslint/type-utils": "8.32.1", "@typescript-eslint/utils": "8.32.1", "@typescript-eslint/visitor-keys": "8.32.1", "graphemer": "^1.4.0", "ignore": "^7.0.0", "natural-compare": "^1.4.0", "ts-api-utils": "^2.1.0" }, "peerDependencies": { "@typescript-eslint/parser": "^8.0.0 || ^8.0.0-alpha.0", "eslint": "^8.57.0 || ^9.0.0", "typescript": ">=4.8.4 <5.9.0" } }, "sha512-6u6Plg9nP/J1GRpe/vcjjabo6Uc5YQPAMxsgQyGC/I0RuukiG1wIe3+Vtg3IrSCVJDmqK3j8adrtzXSENRtFgg=="],
 
     "@typescript-eslint/parser": ["@typescript-eslint/parser@8.32.1", "", { "dependencies": { "@typescript-eslint/scope-manager": "8.32.1", "@typescript-eslint/types": "8.32.1", "@typescript-eslint/typescript-estree": "8.32.1", "@typescript-eslint/visitor-keys": "8.32.1", "debug": "^4.3.4" }, "peerDependencies": { "eslint": "^8.57.0 || ^9.0.0", "typescript": ">=4.8.4 <5.9.0" } }, "sha512-LKMrmwCPoLhM45Z00O1ulb6jwyVr2kr3XJp+G+tSEZcbauNnScewcQwtJqXDhXeYPDEjZ8C1SjXm015CirEmGg=="],
@@ -488,6 +492,28 @@
 
     "keyv": ["keyv@4.5.4", "", { "dependencies": { "json-buffer": "3.0.1" } }, "sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw=="],
 
+    "lefthook": ["lefthook@1.11.13", "", { "optionalDependencies": { "lefthook-darwin-arm64": "1.11.13", "lefthook-darwin-x64": "1.11.13", "lefthook-freebsd-arm64": "1.11.13", "lefthook-freebsd-x64": "1.11.13", "lefthook-linux-arm64": "1.11.13", "lefthook-linux-x64": "1.11.13", "lefthook-openbsd-arm64": "1.11.13", "lefthook-openbsd-x64": "1.11.13", "lefthook-windows-arm64": "1.11.13", "lefthook-windows-x64": "1.11.13" }, "bin": { "lefthook": "bin/index.js" } }, "sha512-SDTk3D4nW1XRpR9u9fdYQ/qj1xeZVIwZmIFdJUnyq+w9ZLdCCvIrOmtD8SFiJowSevISjQDC+f9nqyFXUxc0SQ=="],
+
+    "lefthook-darwin-arm64": ["lefthook-darwin-arm64@1.11.13", "", { "os": "darwin", "cpu": "arm64" }, "sha512-gHwHofXupCtzNLN+8esdWfFTnAEkmBxE/WKA0EwxPPJXdZYa1GUsiG5ipq/CdG/0j8ekYyM9Hzyrrk5BqJ42xw=="],
+
+    "lefthook-darwin-x64": ["lefthook-darwin-x64@1.11.13", "", { "os": "darwin", "cpu": "x64" }, "sha512-zYxkWNUirmTidhskY9J9AwxvdMi3YKH+TqZ3AQ1EOqkOwPBWJQW5PbnzsXDrd3YnrtZScYm/tE/moXJpEPPIpQ=="],
+
+    "lefthook-freebsd-arm64": ["lefthook-freebsd-arm64@1.11.13", "", { "os": "freebsd", "cpu": "arm64" }, "sha512-gJzWnllcMcivusmPorEkXPpEciKotlBHn7QxWwYaSjss/U3YdZu+NTjDO30b3qeiVlyq4RAZ4BPKJODXxHHwUA=="],
+
+    "lefthook-freebsd-x64": ["lefthook-freebsd-x64@1.11.13", "", { "os": "freebsd", "cpu": "x64" }, "sha512-689XdchgtDvZQWFFx1szUvm/mqrq/v6laki0odq5FAfcSgUeLu3w+z6UicBS5l55eFJuQTDNKARFqrKJ04e+Vw=="],
+
+    "lefthook-linux-arm64": ["lefthook-linux-arm64@1.11.13", "", { "os": "linux", "cpu": "arm64" }, "sha512-ujCLbaZg5S/Ao8KZAcNSb+Y3gl898ZEM0YKyiZmZo22dFFpm/5gcV46pF3xaqIw5IpH+3YYDTKDU+qTetmARyQ=="],
+
+    "lefthook-linux-x64": ["lefthook-linux-x64@1.11.13", "", { "os": "linux", "cpu": "x64" }, "sha512-O5WdodeBtFOXQlvPcckqp4W/yqVM9DbVQBkvOxwSJlmsxO4sGYK1TqdxH9ihLB85B2kPPssZj9ze36/oizzhVQ=="],
+
+    "lefthook-openbsd-arm64": ["lefthook-openbsd-arm64@1.11.13", "", { "os": "openbsd", "cpu": "arm64" }, "sha512-SyBpciUfvY/lUDbZu7L6MtL/SVG2+yMTckBgb4PdJQhJlisY0IsyOYdlTw2icPPrY7JnwdsFv8UW0EJOB76W4g=="],
+
+    "lefthook-openbsd-x64": ["lefthook-openbsd-x64@1.11.13", "", { "os": "openbsd", "cpu": "x64" }, "sha512-6+/0j6O2dzo9cjTWUKfL2J6hRR7Krna/ssqnW8cWh8QHZKO9WJn34epto9qgjeHwSysou8byI7Mwv5zOGthLCQ=="],
+
+    "lefthook-windows-arm64": ["lefthook-windows-arm64@1.11.13", "", { "os": "win32", "cpu": "arm64" }, "sha512-w5TwZ8bsZ17uOMtYGc5oEb4tCHjNTSeSXRy6H9Yic8E7IsPZtZLkaZGnIIwgXFuhhrcCdc6FuTvKt2tyV7EW2g=="],
+
+    "lefthook-windows-x64": ["lefthook-windows-x64@1.11.13", "", { "os": "win32", "cpu": "x64" }, "sha512-7lvwnIs8CNOXKU4y3i1Pbqna+QegIORkSD2VCuHBNpIJ8H84NpjoG3tKU91IM/aI1a2eUvCk+dw+1rfMRz7Ytg=="],
+
     "levn": ["levn@0.4.1", "", { "dependencies": { "prelude-ls": "^1.2.1", "type-check": "~0.4.0" } }, "sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ=="],
 
     "lines-and-columns": ["lines-and-columns@1.2.4", "", {}, "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg=="],
@@ -555,6 +581,8 @@
     "react-dom": ["react-dom@19.1.0", "", { "dependencies": { "scheduler": "^0.26.0" }, "peerDependencies": { "react": "^19.1.0" } }, "sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g=="],
 
     "react-is": ["react-is@19.1.0", "", {}, "sha512-Oe56aUPnkHyyDxxkvqtd7KkdQP5uIUfHxd5XTb3wE9d/kRnZLmKbDB0GWk919tdQ+mxxPtG6EAs6RMT6i1qtHg=="],
+
+    "react-redux": ["react-redux@9.2.0", "", { "dependencies": { "@types/use-sync-external-store": "^0.0.6", "use-sync-external-store": "^1.4.0" }, "peerDependencies": { "@types/react": "^18.2.25 || ^19", "react": "^18.0 || ^19", "redux": "^5.0.0" }, "optionalPeers": ["@types/react", "redux"] }, "sha512-ROY9fvHhwOD9ySfrF0wmvu//bKCQ6AeZZq1nJNtbDC+kk5DuSuNX/n6YWYF/SYy7bSba4D4FSz8DJeKY/S/r+g=="],
 
     "react-refresh": ["react-refresh@0.17.0", "", {}, "sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ=="],
 
