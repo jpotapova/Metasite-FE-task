@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    format:
+      run: bun format {staged_files}
+      stage_fixed: true
+    lint:
+      run: bun lint {staged_files}
+      stage_fixed: true
