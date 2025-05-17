@@ -48,6 +48,7 @@ export default tseslint.config(
       ...reactDom.configs.recommended.rules,
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
+      "@typescript-eslint/no-invalid-void-type": "off", // to allow typing queries in RTK slices that don't expect any params using build.query<>
     },
   },
 );

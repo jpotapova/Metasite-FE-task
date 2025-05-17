@@ -9,11 +9,11 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-export const DEFAULT_FILTER_NAME = "";
+export const DEFAULT_FILTER_DISPLAY_NAME = "";
 export const DEFAULT_FILTER_CITY = "";
 export const DEFAULT_FILTER_SHOW_ACTIVE = false;
 export interface FilterFormValues {
-  name: string;
+  displayName: string;
   city: string;
   showActive: boolean;
 }
@@ -23,7 +23,9 @@ interface FilterFormProps {
 }
 
 export const FilterForm = ({ onSubmit }: FilterFormProps) => {
-  const [name, setName] = useState<string>(DEFAULT_FILTER_NAME);
+  const [displayName, setDisplayName] = useState<string>(
+    DEFAULT_FILTER_DISPLAY_NAME,
+  );
   const [city, setCity] = useState<string>(DEFAULT_FILTER_CITY);
   const [showActive, setShowActive] = useState<boolean>(
     DEFAULT_FILTER_SHOW_ACTIVE,
@@ -31,7 +33,7 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    onSubmit({ name, city, showActive });
+    onSubmit({ displayName, city, showActive });
   };
 
   return (
@@ -39,9 +41,9 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
       <Stack direction="row" spacing={2} alignItems="center">
         <TextField
           label="Name"
-          value={name}
+          value={displayName}
           onChange={(e) => {
-            setName(e.target.value);
+            setDisplayName(e.target.value);
           }}
           size="small"
         />

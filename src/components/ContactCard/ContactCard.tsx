@@ -1,11 +1,11 @@
+import type { ContactProps } from "@common/contact";
+
 interface ContactCardProps {
-  contact?: {
-    name: string;
-  };
+  contact?: ContactProps;
 }
 export const ContactCard = ({ contact }: ContactCardProps) => {
   if (!contact) {
     return null;
   }
-  return <div>{contact.name}</div>;
+  return <div>{contact.displayName}</div>;
 };

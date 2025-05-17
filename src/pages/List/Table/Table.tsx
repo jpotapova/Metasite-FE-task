@@ -1,3 +1,4 @@
+import type { ContactProps } from "@common/contact";
 import MenuIcon from "@mui/icons-material/Menu";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { IconButton } from "@mui/material";
@@ -12,14 +13,7 @@ import {
   MIN_COLUMN_DEFINITION,
 } from "./types";
 interface TableProps {
-  rows: {
-    id: string;
-    name: string;
-    city: string;
-    isActive: boolean;
-    email: string;
-    phone: string;
-  }[];
+  rows: ContactProps[];
   onRowClick: (id: string) => void;
 }
 
@@ -29,7 +23,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
   const [visibleColumns, setVisibleColumns] = useState<
     Record<ColumnToShowHide, boolean>
   >({
-    name: true,
+    displayName: true,
     city: true,
     email: true,
     phone: true,
@@ -38,7 +32,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
   const columns: ColumnProps[] = [
     {
       ...MIN_COLUMN_DEFINITION,
-      field: "name",
+      field: "displayName",
       headerName: "Name",
     },
     {
@@ -51,6 +45,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       field: "isActive",
       headerName: "Active",
       renderHeader: () => <VisibilityIcon />,
+      renderCell: (params) => (params.value ? <VisibilityIcon /> : null),
     },
     {
       ...MIN_COLUMN_DEFINITION,
@@ -63,6 +58,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       headerName: "Phone",
     },
     {
+      disableColumnMenu: true,
       field: "actions",
       headerName: "",
       renderHeader: () => (
@@ -97,9 +93,9 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
         rows={rows}
         columns={visibleColumnsArray}
         hideFooter
-        onRowClick={({ row }: {
-          row: { id: string };
-        }) => { onRowClick(row.id); }}
+        onRowClick={({ row }: { row: { id: string } }) => {
+          onRowClick(row.id);
+        }}
       />
       <ColumnsVisibilityMenu
         anchorEl={anchorEl}

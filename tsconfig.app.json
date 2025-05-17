@@ -8,9 +8,11 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@common/*": ["./src/common/*"],
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@store/*": ["./src/store/*"]
     },
 
     /* Bundler mode */
