@@ -35,20 +35,26 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
         <TextField
           label="Name"
           value={name}
-          onChange={(e) => { setName(e.target.value); }}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
           size="small"
         />
         <TextField
           label="City"
           value={city}
-          onChange={(e) => { setCity(e.target.value); }}
+          onChange={(e) => {
+            setCity(e.target.value);
+          }}
           size="small"
         />
         <FormControlLabel
           control={
             <Checkbox
               checked={showActive}
-              onChange={(e) => { setShowActive(e.target.checked); }}
+              onChange={(e) => {
+                setShowActive(e.target.checked);
+              }}
             />
           }
           label={

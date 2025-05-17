@@ -7,10 +7,9 @@ import { useState } from "react";
 import {
   ColumnsVisibilityMenu,
   type ColumnToShowHide,
-  isColumnToShowHide,
 } from "./ColumnsVisibilityMenu";
+import { getColumnsToToggle, getVisibleColumnsArray } from "./helpers";
 import { type ColumnProps, MIN_COLUMN_DEFINITION } from "./types";
-
 interface TableProps {
   rows: {
     id: number;
@@ -80,36 +79,15 @@ export const Table = ({ rows }: TableProps) => {
     setAnchorEl(null);
   };
 
-  const handleColumnToggle = (column: string) => {
+  const handleColumnToggle = (column: ColumnToShowHide) => {
     setVisibleColumns((prev) => ({
       ...prev,
-      [column]: !prev[column as keyof typeof prev],
+      [column]: !prev[column],
     }));
   };
 
-  const visibleColumnsArray = columns.filter(
-    (column) =>
-      (isColumnToShowHide(column.field) && visibleColumns[column.field]) ||
-      !isColumnToShowHide(column.field),
-  );
-
-  const columnsToToggle = columns
-    .filter(
-      (
-        column,
-      ): column is ColumnProps & {
-        field: ColumnToShowHide;
-      } => {
-        return isColumnToShowHide(column.field);
-      },
-    )
-    .map((column) => {
-      return {
-        field: column.field,
-        headerName: column.headerName,
-        isVisible: visibleColumns[column.field],
-      };
-    });
+  const visibleColumnsArray = getVisibleColumnsArray(columns, visibleColumns);
+  const columnsToToggle = getColumnsToToggle(columns, visibleColumns);
 
   return (
     <div>
