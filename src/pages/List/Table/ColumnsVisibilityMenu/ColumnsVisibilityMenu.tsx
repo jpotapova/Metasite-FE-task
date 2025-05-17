@@ -1,10 +1,5 @@
-import {
-  Checkbox,
-  ListItemIcon,
-  ListItemText,
-  Menu,
-  MenuItem,
-} from "@mui/material";
+import { Checkbox } from "@components/Checkbox";
+import { ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
 
 import { type ColumnToShowHide } from "./types";
 
@@ -37,7 +32,7 @@ export const ColumnsVisibilityMenu = ({
           }}
         >
           <ListItemIcon>
-            <Checkbox checked={column.isVisible} />
+            <Checkbox isChecked={column.isVisible} />
           </ListItemIcon>
           <ListItemText primary={column.headerName} />
         </MenuItem>
