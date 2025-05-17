@@ -1,6 +1,13 @@
 import { RootLayout } from "@layouts/RootLayout";
+import { useState } from "react";
 
 import { FilterForm, type FilterFormValues } from "./FilterForm";
+import {
+  DEFAULT_FILTER_CITY,
+  DEFAULT_FILTER_NAME,
+  DEFAULT_FILTER_SHOW_ACTIVE,
+} from "./FilterForm";
+import { getFilteredRows } from "./helpers";
 import { Table } from "./Table";
 // Sample data - replace with your actual data
 const rows = [
@@ -23,14 +30,22 @@ const rows = [
 ];
 
 export const List = () => {
+  const [filters, setFilters] = useState<FilterFormValues>({
+    name: DEFAULT_FILTER_NAME,
+    city: DEFAULT_FILTER_CITY,
+    showActive: DEFAULT_FILTER_SHOW_ACTIVE,
+  });
+
   const handleSubmit = (formValues: FilterFormValues) => {
-    console.log(formValues);
+    setFilters(formValues);
   };
+
+  const filteredRows = getFilteredRows(rows, filters);
 
   return (
     <RootLayout>
       <FilterForm onSubmit={handleSubmit} />
-      <Table rows={rows} />
+      <Table rows={filteredRows} />
     </RootLayout>
   );
 };

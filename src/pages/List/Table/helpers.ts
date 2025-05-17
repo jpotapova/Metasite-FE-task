@@ -1,8 +1,8 @@
 import {
+  type ColumnProps,
   type ColumnToShowHide,
   isColumnToShowHide,
-} from "./ColumnsVisibilityMenu";
-import type { ColumnProps } from "./types";
+} from "./types";
 
 export const getVisibleColumnsArray = (
   columns: ColumnProps[],

@@ -9,6 +9,9 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
+export const DEFAULT_FILTER_NAME = "";
+export const DEFAULT_FILTER_CITY = "";
+export const DEFAULT_FILTER_SHOW_ACTIVE = false;
 export interface FilterFormValues {
   name: string;
   city: string;
@@ -20,9 +23,11 @@ interface FilterFormProps {
 }
 
 export const FilterForm = ({ onSubmit }: FilterFormProps) => {
-  const [name, setName] = useState<string>("");
-  const [city, setCity] = useState<string>("");
-  const [showActive, setShowActive] = useState<boolean>(true);
+  const [name, setName] = useState<string>(DEFAULT_FILTER_NAME);
+  const [city, setCity] = useState<string>(DEFAULT_FILTER_CITY);
+  const [showActive, setShowActive] = useState<boolean>(
+    DEFAULT_FILTER_SHOW_ACTIVE,
+  );
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();

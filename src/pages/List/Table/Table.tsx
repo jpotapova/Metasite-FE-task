@@ -4,12 +4,13 @@ import { IconButton } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useState } from "react";
 
-import {
-  ColumnsVisibilityMenu,
-  type ColumnToShowHide,
-} from "./ColumnsVisibilityMenu";
+import { ColumnsVisibilityMenu } from "./ColumnsVisibilityMenu";
 import { getColumnsToToggle, getVisibleColumnsArray } from "./helpers";
-import { type ColumnProps, MIN_COLUMN_DEFINITION } from "./types";
+import {
+  type ColumnProps,
+  type ColumnToShowHide,
+  MIN_COLUMN_DEFINITION,
+} from "./types";
 interface TableProps {
   rows: {
     id: number;
