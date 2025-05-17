@@ -1,6 +1,6 @@
 import type { ContactProps } from "@common/contact";
+import { IndicatorActive } from "@components/IndicatorActive";
 import MenuIcon from "@mui/icons-material/Menu";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import { IconButton } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useState } from "react";
@@ -44,8 +44,10 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       ...MIN_COLUMN_DEFINITION,
       field: "isActive",
       headerName: "Active",
-      renderHeader: () => <VisibilityIcon />,
-      renderCell: (params) => (params.value ? <VisibilityIcon /> : null),
+      renderHeader: () => <IndicatorActive isOn />,
+      renderCell: (params: { value?: boolean }) => (
+        <IndicatorActive isOn={!!params.value} />
+      ),
     },
     {
       ...MIN_COLUMN_DEFINITION,
@@ -59,6 +61,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
     },
     {
       disableColumnMenu: true,
+      sortable: false,
       field: "actions",
       headerName: "",
       renderHeader: () => (

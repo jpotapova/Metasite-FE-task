@@ -1,4 +1,6 @@
 import { ContactCard } from "@components/ContactCard";
+import { ErrorMessage } from "@components/ErrorMessage";
+import { IndicatorProgress } from "@components/IndicatorProgress";
 import { RootLayout } from "@layouts/RootLayout";
 import { useGetContactsQuery } from "@store/contactsSlice";
 import { useState } from "react";
@@ -36,8 +38,8 @@ export const List = () => {
 
   return (
     <RootLayout>
-      {isLoading && <div>Loading...</div>}
-      {isError && <div>Error loading contacts</div>}
+      {isLoading && <IndicatorProgress />}
+      {isError && <ErrorMessage>Error loading contacts</ErrorMessage>}
       {isSuccess && (
         <>
           <FilterForm onSubmit={handleSubmit} />

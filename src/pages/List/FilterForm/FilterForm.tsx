@@ -1,12 +1,8 @@
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import {
-  Box,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { Button } from "@components/Button";
+import { Checkbox } from "@components/Checkbox";
+import { IndicatorActive } from "@components/IndicatorActive";
+import { Input } from "@components/Input";
+import { Box, Stack } from "@mui/material";
 import { useState } from "react";
 
 export const DEFAULT_FILTER_DISPLAY_NAME = "";
@@ -39,41 +35,19 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
   return (
     <Box component="form" onSubmit={handleSubmit}>
       <Stack direction="row" spacing={2} alignItems="center">
-        <TextField
-          label="Name"
-          value={displayName}
-          onChange={(e) => {
-            setDisplayName(e.target.value);
-          }}
-          size="small"
-        />
-        <TextField
-          label="City"
-          value={city}
-          onChange={(e) => {
-            setCity(e.target.value);
-          }}
-          size="small"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={showActive}
-              onChange={(e) => {
-                setShowActive(e.target.checked);
-              }}
-            />
-          }
+        <Input label="Name" value={displayName} onChange={setDisplayName} />
+        <Input label="City" value={city} onChange={setCity} />
+        <Checkbox
+          isChecked={showActive}
+          onChange={setShowActive}
           label={
             <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
               Show active
-              <VisibilityIcon fontSize="small" />
+              <IndicatorActive isOn size="small" />
             </Box>
           }
         />
-        <Button type="submit" variant="contained" color="primary">
-          Filter
-        </Button>
+        <Button>Filter</Button>
       </Stack>
     </Box>
   );
