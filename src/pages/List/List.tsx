@@ -1,3 +1,5 @@
+import { RootLayout } from "@layouts/RootLayout";
+import { FilterForm } from "./FilterForm";
 import { Table } from "./Table";
 // Sample data - replace with your actual data
 const rows = [
@@ -20,5 +22,10 @@ const rows = [
 ];
 
 export const List = () => {
-    return <Table rows={rows} />
+    return (
+        <RootLayout>
+            <FilterForm />
+            <Table rows={rows} />
+        </RootLayout>
+    );
 };

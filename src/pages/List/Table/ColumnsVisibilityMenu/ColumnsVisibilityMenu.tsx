@@ -6,7 +6,7 @@ import {
   MenuItem,
 } from "@mui/material";
 
-export type ColumnToShowHideProps = {
+export interface ColumnToShowHideProps {
   field: string;
   headerName: string;
   isVisible: boolean;

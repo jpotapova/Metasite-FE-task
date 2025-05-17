@@ -1,6 +1,6 @@
 import { ColumnsVisibilityMenu } from "./ColumnsVisibilityMenu";
-import { COLUMNS_TO_SHOW_HIDE, isColumnToShowHide } from "./types";
 import type { ColumnToShowHide } from "./types";
+import { COLUMNS_TO_SHOW_HIDE, isColumnToShowHide } from "./types";
 
-export { ColumnsVisibilityMenu, COLUMNS_TO_SHOW_HIDE, isColumnToShowHide };
+export { COLUMNS_TO_SHOW_HIDE, ColumnsVisibilityMenu, isColumnToShowHide };
 export type { ColumnToShowHide };
