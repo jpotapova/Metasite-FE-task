@@ -3,17 +3,21 @@ import type { ContactProps } from "@common/contact";
 import type { FilterFormValues } from "./types";
 
 export const getFilteredRows = (
-  rows: ContactProps[],
+  contacts: ContactProps[] | undefined,
   filters: FilterFormValues,
 ) => {
-  return rows.filter((row) => {
-    const matchesName = row.displayName
+  if (!contacts) {
+    return [];
+  }
+
+  return contacts.filter((contact) => {
+    const matchesName = contact.displayName
       .toLowerCase()
-      .includes(filters.name.toLowerCase());
-    const matchesCity = row.city
+      .includes(filters.displayName.toLowerCase());
+    const matchesCity = contact.city
       .toLowerCase()
       .includes(filters.city.toLowerCase());
-    const matchesActive = filters.showActive ? row.isActive : true;
+    const matchesActive = filters.showActive ? contact.isActive : true;
     return matchesName && matchesCity && matchesActive;
   });
 };

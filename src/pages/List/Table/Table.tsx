@@ -23,7 +23,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
   const [visibleColumns, setVisibleColumns] = useState<
     Record<ColumnToShowHide, boolean>
   >({
-    name: true,
+    displayName: true,
     city: true,
     email: true,
     phone: true,
@@ -32,7 +32,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
   const columns: ColumnProps[] = [
     {
       ...MIN_COLUMN_DEFINITION,
-      field: "name",
+      field: "displayName",
       headerName: "Name",
     },
     {

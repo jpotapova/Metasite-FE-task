@@ -1,4 +1,9 @@
-export const COLUMNS_TO_SHOW_HIDE = ["name", "city", "email", "phone"] as const;
+export const COLUMNS_TO_SHOW_HIDE = [
+  "displayName",
+  "city",
+  "email",
+  "phone",
+] as const;
 
 export type ColumnToShowHide = (typeof COLUMNS_TO_SHOW_HIDE)[number];
 
