@@ -1,3 +1,4 @@
+import type { ContactProps } from "@common/contact";
 import { ContactCard } from "@components/ContactCard";
 import { RootLayout } from "@layouts/RootLayout";
 import { useState } from "react";
@@ -10,11 +11,12 @@ import {
 } from "./FilterForm";
 import { getFilteredRows } from "./helpers";
 import { Table } from "./Table";
+
 // Sample data - replace with your actual data
-const rows = [
+const rows: ContactProps[] = [
   {
     id: "1",
-    name: "John Doe",
+    displayName: "John Doe",
     city: "New York",
     isActive: true,
     email: "john@example.com",
@@ -22,7 +24,7 @@ const rows = [
   },
   {
     id: "2",
-    name: "Jane Smith",
+    displayName: "Jane Smith",
     city: "Los Angeles",
     isActive: false,
     email: "jane@example.com",
@@ -44,7 +46,7 @@ export const List = () => {
   };
 
   const filteredRows = getFilteredRows(rows, filters);
-  const selectedRow = rows.find((row) => row.id === selectedId);
+  const selectedRow = filteredRows.find((row) => row.id === selectedId);
 
   return (
     <RootLayout>

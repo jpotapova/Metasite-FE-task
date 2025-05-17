@@ -1,3 +1,4 @@
+import type { ContactProps } from "@common/contact";
 import MenuIcon from "@mui/icons-material/Menu";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { IconButton } from "@mui/material";
@@ -12,14 +13,7 @@ import {
   MIN_COLUMN_DEFINITION,
 } from "./types";
 interface TableProps {
-  rows: {
-    id: string;
-    name: string;
-    city: string;
-    isActive: boolean;
-    email: string;
-    phone: string;
-  }[];
+  rows: ContactProps[];
   onRowClick: (id: string) => void;
 }
 
@@ -97,9 +91,9 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
         rows={rows}
         columns={visibleColumnsArray}
         hideFooter
-        onRowClick={({ row }: {
-          row: { id: string };
-        }) => { onRowClick(row.id); }}
+        onRowClick={({ row }: { row: { id: string } }) => {
+          onRowClick(row.id);
+        }}
       />
       <ColumnsVisibilityMenu
         anchorEl={anchorEl}

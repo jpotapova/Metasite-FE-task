@@ -1,18 +1,13 @@
+import type { ContactProps } from "@common/contact";
+
 import type { FilterFormValues } from "./types";
 
 export const getFilteredRows = (
-  rows: {
-    id: string;
-    name: string;
-    city: string;
-    isActive: boolean;
-    email: string;
-    phone: string;
-  }[],
+  rows: ContactProps[],
   filters: FilterFormValues,
 ) => {
   return rows.filter((row) => {
-    const matchesName = row.name
+    const matchesName = row.displayName
       .toLowerCase()
       .includes(filters.name.toLowerCase());
     const matchesCity = row.city
