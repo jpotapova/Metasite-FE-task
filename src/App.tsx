@@ -1,7 +1,7 @@
-import Button from "@mui/material/Button";
+import { RootLayout } from "@layouts/RootLayout";
 
 function App() {
-  return <Button variant="contained">Hello world</Button>;
+  return <RootLayout>main</RootLayout>
 }
 
 export default App;
