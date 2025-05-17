@@ -1,5 +1,7 @@
+import Button from "@mui/material/Button";
+
 function App() {
-  return <h1>Vite + React</h1>;
+  return <Button variant="contained">Hello world</Button>;
 }
 
 export default App;
