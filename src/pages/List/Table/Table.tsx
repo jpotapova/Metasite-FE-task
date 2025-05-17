@@ -9,7 +9,7 @@ import {
   type ColumnToShowHide,
   isColumnToShowHide,
 } from "./ColumnsVisibilityMenu";
-import { type ColumnProps,MIN_COLUMN_DEFINITION } from "./types";
+import { type ColumnProps, MIN_COLUMN_DEFINITION } from "./types";
 
 interface TableProps {
   rows: {

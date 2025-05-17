@@ -1,5 +1,6 @@
 import { RootLayout } from "@layouts/RootLayout";
-import { FilterForm } from "./FilterForm";
+
+import { FilterForm, type FilterFormValues } from "./FilterForm";
 import { Table } from "./Table";
 // Sample data - replace with your actual data
 const rows = [
@@ -22,9 +23,13 @@ const rows = [
 ];
 
 export const List = () => {
+    const handleSubmit = (formValues: FilterFormValues) => {
+        console.log(formValues);
+    };
+
     return (
         <RootLayout>
-            <FilterForm />
+            <FilterForm onSubmit={handleSubmit} />
             <Table rows={rows} />
         </RootLayout>
     );
