@@ -1,23 +1,19 @@
-import React from "react";
 import { Logo } from "@components/Logo";
+import React from "react";
 
 interface RootLayoutProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const RootLayout = ({ children }: RootLayoutProps) => {
-    return (
+  return (
+    <div>
+      <header>
         <div>
-            <header>
-                <div>
-                    <Logo />
-                </div>
-
-            </header>
-            <main>
-                {children}
-            </main>
+          <Logo />
         </div>
-
-    );
+      </header>
+      <main>{children}</main>
+    </div>
+  );
 };
