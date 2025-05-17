@@ -2,7 +2,7 @@ import type { FilterFormValues } from "./types";
 
 export const getFilteredRows = (
   rows: {
-    id: number;
+    id: string;
     name: string;
     city: string;
     isActive: boolean;

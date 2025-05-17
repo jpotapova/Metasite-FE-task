@@ -1,3 +1,4 @@
+import { ContactCard } from "@components/ContactCard";
 import { RootLayout } from "@layouts/RootLayout";
 import { useState } from "react";
 
@@ -12,7 +13,7 @@ import { Table } from "./Table";
 // Sample data - replace with your actual data
 const rows = [
   {
-    id: 1,
+    id: "1",
     name: "John Doe",
     city: "New York",
     isActive: true,
@@ -20,7 +21,7 @@ const rows = [
     phone: "123-456-7890",
   },
   {
-    id: 2,
+    id: "2",
     name: "Jane Smith",
     city: "Los Angeles",
     isActive: false,
@@ -36,16 +37,20 @@ export const List = () => {
     showActive: DEFAULT_FILTER_SHOW_ACTIVE,
   });
 
+  const [selectedId, setSelectedId] = useState<string>();
+
   const handleSubmit = (formValues: FilterFormValues) => {
     setFilters(formValues);
   };
 
   const filteredRows = getFilteredRows(rows, filters);
+  const selectedRow = rows.find((row) => row.id === selectedId);
 
   return (
     <RootLayout>
       <FilterForm onSubmit={handleSubmit} />
-      <Table rows={filteredRows} />
+      <Table rows={filteredRows} onRowClick={setSelectedId} />
+      <ContactCard contact={selectedRow} />
     </RootLayout>
   );
 };

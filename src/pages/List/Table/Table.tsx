@@ -13,16 +13,17 @@ import {
 } from "./types";
 interface TableProps {
   rows: {
-    id: number;
+    id: string;
     name: string;
     city: string;
     isActive: boolean;
     email: string;
     phone: string;
   }[];
+  onRowClick: (id: string) => void;
 }
 
-export const Table = ({ rows }: TableProps) => {
+export const Table = ({ rows, onRowClick }: TableProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const [visibleColumns, setVisibleColumns] = useState<
@@ -92,7 +93,14 @@ export const Table = ({ rows }: TableProps) => {
 
   return (
     <div>
-      <DataGrid rows={rows} columns={visibleColumnsArray} hideFooter />
+      <DataGrid
+        rows={rows}
+        columns={visibleColumnsArray}
+        hideFooter
+        onRowClick={({ row }: {
+          row: { id: string };
+        }) => { onRowClick(row.id); }}
+      />
       <ColumnsVisibilityMenu
         anchorEl={anchorEl}
         onMenuClose={handleMenuClose}
