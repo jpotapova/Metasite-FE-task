@@ -6,14 +6,16 @@ import {
   MenuItem,
 } from "@mui/material";
 
+export type ColumnToShowHideProps = {
+  field: string;
+  headerName: string;
+  isVisible: boolean;
+}
+
 interface ColumnsVisibilityMenuProps {
   anchorEl: null | HTMLElement;
   onMenuClose: () => void;
-  columns: {
-    field: string;
-    headerName: string;
-    isVisible: boolean;
-  }[];
+  columns: ColumnToShowHideProps[];
   onColumnToggle: (field: string) => void;
 }
 
