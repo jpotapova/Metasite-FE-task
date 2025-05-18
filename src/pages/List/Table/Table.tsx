@@ -1,6 +1,5 @@
 import type { ContactProps } from "@common/contact";
 import { useTheme } from "@common/Theme";
-import { Container } from "@components/Container";
 import { IndicatorActive } from "@components/IndicatorActive";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
@@ -110,7 +109,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
   const columnsToToggle = getColumnsToToggle(columns, visibleColumns);
 
   return (
-    <Container>
+    <div>
       <DataGrid
         rows={rows}
         columns={visibleColumnsArray}
@@ -119,6 +118,8 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
           onRowClick(row.id);
         }}
         sx={{
+          border: "none",
+          boxShadow: 2,
           "& .MuiDataGrid-columnHeaders": {
             "& .MuiDataGrid-columnHeader": {
               backgroundColor: theme.palette.contactify.backgroundLight,
@@ -155,6 +156,6 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
         columns={columnsToToggle}
         onColumnToggle={handleColumnToggle}
       />
-    </Container>
+    </div>
   );
 };
