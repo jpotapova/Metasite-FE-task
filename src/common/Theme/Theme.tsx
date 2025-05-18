@@ -31,6 +31,9 @@ const themeOptions = createTheme({
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: COLOR_PRIMARY,
           },
+          "& .MuiOutlinedInput-input": {
+            color: COLOR_CONTRAST,
+          },
         },
       },
     },

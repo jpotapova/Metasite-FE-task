@@ -38,24 +38,41 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
     <form
       onSubmit={handleSubmit}
       style={{
-        backgroundColor: theme.palette.contactify.backgroundLight,
+        backgroundColor: theme.palette.contactify.backgroundMedium,
         width: "100%",
       }}
     >
       <Container>
-        <Input label="Name" value={displayName} onChange={setDisplayName} />
-        <Input label="City" value={city} onChange={setCity} />
-        <Checkbox
-          isChecked={showActive}
-          onChange={setShowActive}
-          label={
-            <div style={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              Show active
-              <IndicatorActive isOn size="small" />
-            </div>
-          }
-        />
-        <Button>Filter</Button>
+        <div
+          style={{
+            display: "flex",
+            gap: theme.spacing(2),
+            paddingTop: theme.spacing(4),
+            paddingBottom: theme.spacing(6),
+          }}
+        >
+          <div style={{ display: "flex", gap: theme.spacing(2) }}>
+            <Input label="Name" value={displayName} onChange={setDisplayName} />
+            <Input label="City" value={city} onChange={setCity} />
+            <Checkbox
+              isChecked={showActive}
+              onChange={setShowActive}
+              label={
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: theme.spacing(1),
+                  }}
+                >
+                  Show active
+                  <IndicatorActive isOn size="small" />
+                </div>
+              }
+            />
+          </div>
+          <Button>Filter</Button>
+        </div>
       </Container>
     </form>
   );
