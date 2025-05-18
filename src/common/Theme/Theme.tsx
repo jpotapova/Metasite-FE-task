@@ -12,6 +12,7 @@ const themeOptions = createTheme({
       backgroundMedium: "#1565C0",
       backgroundLight: "#2196F3",
       backgroundLightest: "#F9FAFB",
+      contrast: "#FFFFFF",
     },
   },
 });

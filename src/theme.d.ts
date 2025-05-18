@@ -7,6 +7,7 @@ declare module "@mui/material/styles" {
       backgroundMedium: string;
       backgroundLight: string;
       backgroundLightest: string;
+      contrast: string;
     };
   }
   interface PaletteOptions {
@@ -15,6 +16,7 @@ declare module "@mui/material/styles" {
       backgroundMedium?: string;
       backgroundLight?: string;
       backgroundLightest?: string;
+      contrast: string;
     };
   }
 }

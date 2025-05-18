@@ -1,6 +1,9 @@
 import { useTheme } from "@common/Theme";
+import { Divider } from "@components/Divider";
 import { Logo } from "@components/Logo";
 import React from "react";
+
+import { Container } from "./Container";
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -18,12 +21,21 @@ export const RootLayout = ({ children }: RootLayoutProps) => {
         flexDirection: "column",
       }}
     >
-      <header>
-        <div>
+      <header
+        style={{
+          backgroundColor: theme.palette.contactify.backgroundDark,
+          paddingTop: theme.spacing(2),
+          paddingBottom: theme.spacing(2),
+        }}
+      >
+        <Container>
           <Logo />
-        </div>
+        </Container>
       </header>
-      <main style={{ flex: 1 }}>{children}</main>
+      <Divider />
+      <main style={{ flex: 1 }}>
+        <Container>{children}</Container>
+      </main>
     </div>
   );
 };
