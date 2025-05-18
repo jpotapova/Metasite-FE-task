@@ -51,4 +51,10 @@ export default tseslint.config(
       "@typescript-eslint/no-invalid-void-type": "off", // to allow typing queries in RTK slices that don't expect any params using build.query<>
     },
   },
+  {
+    files: ["**/*.d.ts"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
 );
