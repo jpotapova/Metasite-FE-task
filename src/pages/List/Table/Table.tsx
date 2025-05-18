@@ -1,4 +1,5 @@
 import type { ContactProps } from "@common/contact";
+import { Container } from "@components/Container";
 import { IndicatorActive } from "@components/IndicatorActive";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
@@ -91,7 +92,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
   const columnsToToggle = getColumnsToToggle(columns, visibleColumns);
 
   return (
-    <div>
+    <Container>
       <DataGrid
         rows={rows}
         columns={visibleColumnsArray}
@@ -106,6 +107,6 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
         columns={columnsToToggle}
         onColumnToggle={handleColumnToggle}
       />
-    </div>
+    </Container>
   );
 };

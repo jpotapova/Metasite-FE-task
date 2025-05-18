@@ -1,8 +1,9 @@
+import { useTheme } from "@common/Theme";
 import { Button } from "@components/Button";
 import { Checkbox } from "@components/Checkbox";
+import { Container } from "@components/Container";
 import { IndicatorActive } from "@components/IndicatorActive";
 import { Input } from "@components/Input";
-import { Box, Stack } from "@mui/material";
 import { useState } from "react";
 
 export const DEFAULT_FILTER_DISPLAY_NAME = "";
@@ -19,6 +20,7 @@ interface FilterFormProps {
 }
 
 export const FilterForm = ({ onSubmit }: FilterFormProps) => {
+  const theme = useTheme();
   const [displayName, setDisplayName] = useState<string>(
     DEFAULT_FILTER_DISPLAY_NAME,
   );
@@ -33,22 +35,28 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit}>
-      <Stack direction="row" spacing={2} alignItems="center">
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        backgroundColor: theme.palette.contactify.backgroundLight,
+        width: "100%",
+      }}
+    >
+      <Container>
         <Input label="Name" value={displayName} onChange={setDisplayName} />
         <Input label="City" value={city} onChange={setCity} />
         <Checkbox
           isChecked={showActive}
           onChange={setShowActive}
           label={
-            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 0.5 }}>
               Show active
               <IndicatorActive isOn size="small" />
-            </Box>
+            </div>
           }
         />
         <Button>Filter</Button>
-      </Stack>
-    </Box>
+      </Container>
+    </form>
   );
 };

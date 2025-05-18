@@ -1,9 +1,8 @@
 import { useTheme } from "@common/Theme";
+import { Container } from "@components/Container";
 import { Divider } from "@components/Divider";
 import { Logo } from "@components/Logo";
 import React from "react";
-
-import { Container } from "./Container";
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -15,7 +14,7 @@ export const RootLayout = ({ children }: RootLayoutProps) => {
     <div
       style={{
         backgroundColor: theme.palette.contactify.backgroundLightest,
-        width: "100vw",
+        width: "100%",
         height: "100vh",
         display: "flex",
         flexDirection: "column",
@@ -24,18 +23,15 @@ export const RootLayout = ({ children }: RootLayoutProps) => {
       <header
         style={{
           backgroundColor: theme.palette.contactify.backgroundDark,
-          paddingTop: theme.spacing(2),
-          paddingBottom: theme.spacing(2),
         }}
       >
         <Container>
           <Logo />
         </Container>
+        <Divider />
       </header>
-      <Divider />
-      <main style={{ flex: 1 }}>
-        <Container>{children}</Container>
-      </main>
+
+      <main style={{ flex: 1 }}>{children}</main>
     </div>
   );
 };

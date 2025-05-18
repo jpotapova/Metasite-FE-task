@@ -2,6 +2,8 @@ import { ContactCard } from "@components/ContactCard";
 import { ErrorMessage } from "@components/ErrorMessage";
 import { IndicatorProgress } from "@components/IndicatorProgress";
 import { RootLayout } from "@layouts/RootLayout";
+// import { transformGetContactsResponse } from "@store/contactsSlice";
+// import data from "@store/mockData.json";
 import { useGetContactsQuery } from "@store/contactsSlice";
 import { useState } from "react";
 
@@ -21,6 +23,11 @@ export const List = () => {
     isError,
     isSuccess,
   } = useGetContactsQuery();
+  // const contacts = transformGetContactsResponse(data);
+  // const isLoading = false;
+  // const isError = false;
+  // const isSuccess = true;
+
   const [filters, setFilters] = useState<FilterFormValues>({
     displayName: DEFAULT_FILTER_DISPLAY_NAME,
     city: DEFAULT_FILTER_CITY,

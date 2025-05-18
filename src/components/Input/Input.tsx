@@ -15,6 +15,7 @@ export const Input = ({ label, value, onChange }: InputProps) => {
         onChange(e.target.value);
       }}
       size="small"
+      slotProps={{ inputLabel: { shrink: true } }}
     />
   );
 };
