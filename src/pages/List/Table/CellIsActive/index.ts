@@ -1,3 +1,3 @@
-import { CellIsActive } from "./CellisActive";
+import { CellIsActive } from "./CellIsActive";
 
 export { CellIsActive };
