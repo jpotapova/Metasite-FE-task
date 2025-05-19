@@ -52,9 +52,14 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       maxWidth: 56,
       renderHeader: () => (
         <div
-          style={{ display: "flex", justifyContent: "center", width: "100%" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            color: theme.palette.contactify.contrast,
+          }}
         >
-          <IndicatorActive isOn theme="dark" />
+          <IndicatorActive isOn theme="light" />
         </div>
       ),
       renderCell: (params: { value?: boolean }) => (
@@ -83,7 +88,10 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       width: 56,
       maxWidth: 56,
       renderHeader: () => (
-        <IconButton onClick={handleMenuClick}>
+        <IconButton
+          onClick={handleMenuClick}
+          sx={{ color: theme.palette.contactify.contrast }}
+        >
           <MenuIcon />
         </IconButton>
       ),
@@ -134,6 +142,9 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
               "& .MuiDataGrid-sortIcon": {
                 color: theme.palette.contactify.contrast,
               },
+            },
+            "& .MuiDataGrid-filler": {
+              backgroundColor: theme.palette.contactify.backgroundLight,
             },
           },
           "& .MuiDataGrid-cell": {

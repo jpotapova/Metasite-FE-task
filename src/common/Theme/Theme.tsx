@@ -50,8 +50,15 @@ const themeOptions = createTheme({
     },
     MuiFormControlLabel: {
       styleOverrides: {
-        label: {
+        root: {
           color: COLOR_CONTRAST,
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          color: "currentColor",
         },
       },
     },

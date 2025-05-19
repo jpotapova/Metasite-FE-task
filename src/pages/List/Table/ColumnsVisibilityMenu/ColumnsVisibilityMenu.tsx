@@ -32,7 +32,7 @@ export const ColumnsVisibilityMenu = ({
           }}
         >
           <ListItemIcon>
-            <Checkbox isChecked={column.isVisible} />
+            <Checkbox isChecked={column.isVisible} theme="contextual" />
           </ListItemIcon>
           <ListItemText primary={column.headerName} />
         </MenuItem>
