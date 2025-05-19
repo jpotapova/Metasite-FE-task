@@ -1,6 +1,7 @@
 import { Checkbox } from "@components/Checkbox";
 import { ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
 
+import { styles } from "./styles";
 import { type ColumnToShowHide } from "./types";
 
 export interface ColumnToShowHideProps {
@@ -27,10 +28,7 @@ export const ColumnsVisibilityMenu = ({
       anchorEl={anchorEl}
       open={Boolean(anchorEl)}
       onClose={onMenuClose}
-      slotProps={{
-        root: { sx: { ".MuiList-root": { padding: 0 } } },
-      }}
-      transformOrigin={{ vertical: -8, horizontal: 58 }}
+      {...styles.menu}
     >
       {columns.map((column) => (
         <MenuItem
@@ -38,22 +36,7 @@ export const ColumnsVisibilityMenu = ({
           onClick={() => {
             onColumnToggle(column.field);
           }}
-          sx={{
-            padding: 0,
-            borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
-            "&:last-child": {
-              borderBottom: "none",
-            },
-            "& .MuiFormControlLabel-root": {
-              margin: 0,
-            },
-            "& .MuiListItemIcon-root": {
-              maxWidth: 42,
-            },
-            "& .MuiListItemText-root": {
-              padding: "8px 16px 8px 0",
-            },
-          }}
+          {...styles.menuItem}
         >
           <ListItemIcon>
             <Checkbox isChecked={column.isVisible} theme="contextual" />

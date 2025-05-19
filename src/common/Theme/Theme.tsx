@@ -1,5 +1,5 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const COLOR_PRIMARY = "#1de9b6";
 const COLOR_CONTRAST = "#ffffff";
@@ -77,5 +77,3 @@ export const Theme = ({ children }: ThemeProps) => {
     </ThemeProvider>
   );
 };
-
-export { useTheme };

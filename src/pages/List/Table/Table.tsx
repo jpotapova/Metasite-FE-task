@@ -1,13 +1,15 @@
 import type { ContactProps } from "@common/contact";
 import { useTheme } from "@common/Theme";
-import { IndicatorActive } from "@components/IndicatorActive";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useState } from "react";
 
+import { CellIsActive } from "./CellIsActive";
 import { ColumnsVisibilityMenu } from "./ColumnsVisibilityMenu";
+import { HeaderIsActive } from "./HeaderIsActive";
 import { getColumnsToToggle, getVisibleColumnsArray } from "./helpers";
+import { styles } from "./styles";
 import {
   type ColumnProps,
   type ColumnToShowHide,
@@ -50,25 +52,8 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
       headerName: "Active",
       width: 56,
       maxWidth: 56,
-      renderHeader: () => (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            color: theme.palette.contactify.contrast,
-          }}
-        >
-          <IndicatorActive isOn theme="light" />
-        </div>
-      ),
-      renderCell: (params: { value?: boolean }) => (
-        <div
-          style={{ display: "flex", justifyContent: "center", width: "100%" }}
-        >
-          <IndicatorActive isOn={!!params.value} theme="dark" />
-        </div>
-      ),
+      renderHeader: HeaderIsActive,
+      renderCell: CellIsActive,
     },
     {
       ...MIN_COLUMN_DEFINITION,
@@ -125,41 +110,7 @@ export const Table = ({ rows, onRowClick }: TableProps) => {
         onRowClick={({ row }: { row: { id: string } }) => {
           onRowClick(row.id);
         }}
-        sx={{
-          border: "none",
-          boxShadow: 2,
-          "& .MuiDataGrid-columnHeaders": {
-            "& .MuiDataGrid-columnHeader": {
-              backgroundColor: theme.palette.contactify.backgroundLight,
-              borderColor: theme.palette.contactify.contrast,
-              width: "100%",
-              "& .MuiDataGrid-columnHeaderTitle": {
-                color: theme.palette.contactify.contrast,
-              },
-              "& .MuiDataGrid-columnHeaderTitleContainerContent": {
-                width: "100%",
-              },
-              "& .MuiDataGrid-sortIcon": {
-                color: theme.palette.contactify.contrast,
-              },
-            },
-            "& .MuiDataGrid-filler": {
-              backgroundColor: theme.palette.contactify.backgroundLight,
-            },
-          },
-          "& .MuiDataGrid-cell": {
-            display: "flex",
-            alignItems: "center",
-          },
-          "& .MuiDataGrid-columnSeparator": {
-            color: theme.palette.contactify.contrast,
-          },
-          "& .MuiDataGrid-columnHeader--last": {
-            "& .MuiDataGrid-columnSeparator": {
-              display: "none",
-            },
-          },
-        }}
+        {...styles.dataGrid(theme)}
       />
       <ColumnsVisibilityMenu
         anchorEl={anchorEl}
