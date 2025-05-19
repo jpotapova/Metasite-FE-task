@@ -8,6 +8,7 @@ declare module "@mui/material/styles" {
       backgroundLight: string;
       backgroundLightest: string;
       contrast: string;
+      secondary: string;
     };
   }
   interface PaletteOptions {
@@ -17,6 +18,7 @@ declare module "@mui/material/styles" {
       backgroundLight?: string;
       backgroundLightest?: string;
       contrast: string;
+      secondary: string;
     };
   }
 }
@@ -28,6 +30,8 @@ declare module "@mui/material/styles/createPalette" {
       backgroundMedium: string;
       backgroundLight: string;
       backgroundLightest: string;
+      contrast: string;
+      secondary: string;
     };
   }
   interface PaletteOptions {
@@ -36,6 +40,8 @@ declare module "@mui/material/styles/createPalette" {
       backgroundMedium?: string;
       backgroundLight?: string;
       backgroundLightest?: string;
+      contrast?: string;
+      secondary?: string;
     };
   }
 }
