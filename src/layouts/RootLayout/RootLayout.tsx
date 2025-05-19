@@ -1,7 +1,7 @@
 import { useTheme } from "@common/Theme";
-import { Container } from "@components/Container";
 import { Divider } from "@components/Divider";
 import { Logo } from "@components/Logo";
+import { MaxWidthContainer } from "@components/MaxWidthContainer";
 import React from "react";
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -25,9 +25,9 @@ export const RootLayout = ({ children }: RootLayoutProps) => {
           backgroundColor: theme.palette.contactify.backgroundDark,
         }}
       >
-        <Container>
+        <MaxWidthContainer>
           <Logo />
-        </Container>
+        </MaxWidthContainer>
         <Divider />
       </header>
 

@@ -1,9 +1,9 @@
 import { useTheme } from "@common/Theme";
 import { Button } from "@components/Button";
 import { Checkbox } from "@components/Checkbox";
-import { Container } from "@components/Container";
 import { IndicatorActive } from "@components/IndicatorActive";
 import { Input } from "@components/Input";
+import { MaxWidthContainer } from "@components/MaxWidthContainer";
 import { useState } from "react";
 
 export const DEFAULT_FILTER_DISPLAY_NAME = "";
@@ -42,7 +42,7 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
         width: "100%",
       }}
     >
-      <Container>
+      <MaxWidthContainer>
         <div
           style={{
             display: "flex",
@@ -73,7 +73,7 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
           </div>
           <Button>Filter</Button>
         </div>
-      </Container>
+      </MaxWidthContainer>
     </form>
   );
 };
