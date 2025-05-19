@@ -16,6 +16,7 @@ const themeOptions = createTheme({
       backgroundLight: "#2196F3",
       backgroundLightest: "#F9FAFB",
       contrast: COLOR_CONTRAST,
+      secondary: "#757575",
     },
   },
   components: {
