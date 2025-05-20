@@ -1,10 +1,10 @@
 import { useTheme } from "@common/Theme";
 
-interface ContainerProps {
+interface MaxWidthContainerProps {
   children: React.ReactNode;
 }
 
-export const Container = ({ children }: ContainerProps) => {
+export const MaxWidthContainer = ({ children }: MaxWidthContainerProps) => {
   const theme = useTheme();
   return (
     <div
