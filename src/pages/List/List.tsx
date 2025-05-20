@@ -52,7 +52,7 @@ export const List = () => {
       {isError && <ErrorMessage>Error loading contacts</ErrorMessage>}
       {isSuccess && (
         <>
-          <FilterForm onSubmit={handleSubmit} />
+          <FilterForm contacts={contacts} onSubmit={handleSubmit} />
           <Container>
             <div
               style={{
