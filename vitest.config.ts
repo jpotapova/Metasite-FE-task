@@ -1,15 +1,14 @@
-import react from "@vitejs/plugin-react";
 import { resolve } from "path";
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  test: {
+    environment: "jsdom",
+  },
   resolve: {
     alias: {
-      "@assets": "/src/assets",
-      "@common": resolve(__dirname, "./src/common"),
       "@components": resolve(__dirname, "./src/components"),
+      "@common": resolve(__dirname, "./src/common"),
       "@layouts": "/src/layouts",
       "@pages": resolve(__dirname, "./src/pages"),
       "@store": "/src/store",
