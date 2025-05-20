@@ -22,6 +22,6 @@
       "@pages/*": ["src/pages/*"]
     }
   },
-  "include": ["src", ".storybook/preview.tsx"],
+  "include": ["src", ".storybook/preview.tsx", "cypress"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
