@@ -46,7 +46,7 @@ export const List = () => {
       {isError && <LoadingError />}
       {isSuccess && (
         <>
-          <FilterForm onSubmit={handleSubmit} />
+          <FilterForm contacts={contacts} onSubmit={handleSubmit} />
           <MaxWidthContainer>
             <div
               style={{

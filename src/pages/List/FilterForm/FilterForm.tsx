@@ -1,10 +1,14 @@
+import type { ContactProps } from "@common/contact";
 import { useTheme } from "@common/Theme";
 import { Button } from "@components/Button";
 import { Checkbox } from "@components/Checkbox";
 import { IndicatorActive } from "@components/IndicatorActive";
 import { Input } from "@components/Input";
 import { MaxWidthContainer } from "@components/MaxWidthContainer";
+import { Select } from "@components/Select";
 import { useState } from "react";
+
+import { getOptions } from "./helpers";
 
 export const DEFAULT_FILTER_DISPLAY_NAME = "";
 export const DEFAULT_FILTER_CITY = "";
@@ -17,9 +21,10 @@ export interface FilterFormValues {
 
 interface FilterFormProps {
   onSubmit: (formValues: FilterFormValues) => void;
+  contacts: ContactProps[] | undefined;
 }
 
-export const FilterForm = ({ onSubmit }: FilterFormProps) => {
+export const FilterForm = ({ onSubmit, contacts }: FilterFormProps) => {
   const theme = useTheme();
   const [displayName, setDisplayName] = useState<string>(
     DEFAULT_FILTER_DISPLAY_NAME,
@@ -33,6 +38,8 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
     event.preventDefault();
     onSubmit({ displayName, city, showActive });
   };
+
+  const options = getOptions(contacts);
 
   return (
     <form
@@ -52,8 +59,22 @@ export const FilterForm = ({ onSubmit }: FilterFormProps) => {
           }}
         >
           <div style={{ display: "flex", gap: theme.spacing(2) }}>
-            <Input label="Name" value={displayName} onChange={setDisplayName} />
-            <Input label="City" value={city} onChange={setCity} />
+            <div style={{ width: theme.spacing(27) }}>
+              <Input
+                label="Name"
+                value={displayName}
+                onChange={setDisplayName}
+              />
+            </div>
+            <div style={{ width: theme.spacing(27) }}>
+              <Select
+                id="city"
+                label="City"
+                value={city}
+                onChange={setCity}
+                options={options}
+              />
+            </div>
             <Checkbox
               isChecked={showActive}
               onChange={setShowActive}
