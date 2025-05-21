@@ -14,7 +14,7 @@ Download the design files from [here](https://github.com/Metasiteorg/frontend-ta
 ### JS
 
 Display contact list from the API.
-API ocumentation can be found [HERE](https://frontend-task-api.metasite.lt/docs/).
+API documentation can be found [HERE](https://frontend-task-api.metasite.lt/docs/).
 
 We will give additional points for:
 

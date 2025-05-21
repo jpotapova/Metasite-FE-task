@@ -17,7 +17,7 @@ Happy path user scenarios, such as submitting the form and viewing the filtered 
 
 I have chosen to build the UI with MUI components because the design was very close to MUI visual.
 Some aspects of MUI needed to be customized and slightly restyled. The approach that works easiest with MUI is css-in-js,
-e.g. providing customizations via the `sx` prop and similar measures. I decided to use the same approach for the rest of the app for consistency. The required additional styling was very minimal, so I consideted it acceptable to just use `style` attributes for this
+e.g. providing customizations via the `sx` prop and similar measures. I decided to use the same approach for the rest of the app for consistency. The required additional styling was very minimal, so I considered it acceptable to just use `style` attributes for this
 particular case.
 
 ## Automated checks
