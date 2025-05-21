@@ -2,7 +2,10 @@ import { useTheme } from "@common/Theme";
 import { ContactCard } from "@components/ContactCard";
 import { MaxWidthContainer } from "@components/MaxWidthContainer";
 import { RootLayout } from "@layouts/RootLayout";
-import { useGetContactsQuery } from "@store/contactsSlice";
+import {
+  useGetContactsQuery,
+  useLazyGetContactQuery,
+} from "@store/contactsSlice";
 import { useState } from "react";
 
 import { FilterForm, type FilterFormValues } from "./FilterForm";
@@ -24,6 +27,15 @@ export const List = () => {
     isError,
     isSuccess,
   } = useGetContactsQuery();
+  const [
+    getContact,
+    {
+      data: selectedContact,
+      isLoading: isLoadingSelectedContact,
+      isError: isErrorSelectedContact,
+      isUninitialized,
+    },
+  ] = useLazyGetContactQuery();
 
   const [filters, setFilters] = useState<FilterFormValues>({
     displayName: DEFAULT_FILTER_DISPLAY_NAME,
@@ -31,14 +43,15 @@ export const List = () => {
     showActive: DEFAULT_FILTER_SHOW_ACTIVE,
   });
 
-  const [selectedId, setSelectedId] = useState<string>();
-
   const handleSubmit = (formValues: FilterFormValues) => {
     setFilters(formValues);
   };
 
+  const handleContactSelect = (id: string) => {
+    getContact(id, { skip: true }).catch(() => undefined);
+  };
+
   const filteredRows = getFilteredRows(contacts, filters);
-  const selectedRow = filteredRows.find((row) => row.id === selectedId);
 
   return (
     <RootLayout>
@@ -56,10 +69,15 @@ export const List = () => {
               }}
             >
               <div style={{ flex: 1 }}>
-                <Table rows={filteredRows} onRowClick={setSelectedId} />
+                <Table rows={filteredRows} onRowClick={handleContactSelect} />
               </div>
               <div style={{ width: 328 }}>
-                <ContactCard contact={selectedRow} />
+                <ContactCard
+                  contact={selectedContact}
+                  isLoading={isLoadingSelectedContact}
+                  isError={isErrorSelectedContact}
+                  isUninitialized={isUninitialized}
+                />
               </div>
             </div>
           </MaxWidthContainer>

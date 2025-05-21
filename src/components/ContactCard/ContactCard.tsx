@@ -2,18 +2,27 @@ import NoPhoto from "@assets/no-photo.png";
 import UserProto from "@assets/user-photo.png";
 import type { ContactProps } from "@common/contact";
 import { useTheme } from "@common/Theme";
+import { IndicatorProgress } from "@components/IndicatorProgress";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 
+import { Message } from "./Message";
 import { Row } from "./Row";
-import { SelectExplanation } from "./SelectExplanation";
 import { Title } from "./Title";
 
 interface ContactCardProps {
   contact?: ContactProps;
+  isLoading: boolean;
+  isError: boolean;
+  isUninitialized: boolean;
 }
-export const ContactCard = ({ contact }: ContactCardProps) => {
+export const ContactCard = ({
+  contact,
+  isLoading,
+  isError,
+  isUninitialized,
+}: ContactCardProps) => {
   const theme = useTheme();
 
   return (
@@ -25,9 +34,22 @@ export const ContactCard = ({ contact }: ContactCardProps) => {
           contact ? `Picture of ${contact.displayName}` : "Placeholder image"
         }
       />
-      <CardContent>
-        {!contact && <SelectExplanation />}
-        {contact && (
+      <CardContent style={{ height: 164 }}>
+        {isLoading && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <IndicatorProgress />
+          </div>
+        )}
+        {isUninitialized && (
+          <Message>Select a row on the left to see the details.</Message>
+        )}
+        {isError && <Message>There was an error loading the contact.</Message>}
+        {contact && !isLoading && !isError && (
           <div>
             <Title>{contact.displayName}</Title>
             <div
