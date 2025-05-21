@@ -19,7 +19,9 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@common/*": ["src/common/*"],
-      "@pages/*": ["src/pages/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@pages/*": ["src/pages/*"],
+      "@store/*": ["src/store/*"]
     }
   },
   "include": ["src", ".storybook/preview.tsx", "cypress"],
