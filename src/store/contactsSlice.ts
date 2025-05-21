@@ -12,26 +12,24 @@ export interface ContactApiProps {
   isActive: boolean;
 }
 
-export const transformGetContactsResponse = (
-  response: ContactApiProps[],
-): ContactProps[] => {
-  return response.map((record) => {
-    const nameParts = [];
-    if (record.name) {
-      nameParts.push(record.name);
-    }
-    if (record.surname) {
-      nameParts.push(record.surname);
-    }
-    return {
-      id: record.id,
-      displayName: nameParts.join(" "),
-      city: record.city,
-      email: record.email,
-      phone: record.phone,
-      isActive: record.isActive,
-    };
-  });
+export const transformGetContactResponse = (
+  record: ContactApiProps,
+): ContactProps => {
+  const nameParts = [];
+  if (record.name) {
+    nameParts.push(record.name);
+  }
+  if (record.surname) {
+    nameParts.push(record.surname);
+  }
+  return {
+    id: record.id,
+    displayName: nameParts.join(" "),
+    city: record.city,
+    email: record.email,
+    phone: record.phone,
+    isActive: record.isActive,
+  };
 };
 
 const contactsApiSlice = baseApiSlice.injectEndpoints({
@@ -40,9 +38,17 @@ const contactsApiSlice = baseApiSlice.injectEndpoints({
       query: () => ({
         url: "contacts",
       }),
-      transformResponse: transformGetContactsResponse,
+      transformResponse: (records: ContactApiProps[]): ContactProps[] => {
+        return records.map(transformGetContactResponse);
+      },
+    }),
+    getContact: build.query<ContactProps, string>({
+      query: (id) => ({
+        url: `contacts/${id}`,
+      }),
+      transformResponse: transformGetContactResponse,
     }),
   }),
 });
 
-export const { useGetContactsQuery } = contactsApiSlice;
+export const { useGetContactsQuery, useLazyGetContactQuery } = contactsApiSlice;

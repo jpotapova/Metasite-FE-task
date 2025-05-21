@@ -1,6 +1,10 @@
 import { useTheme } from "@common/Theme";
 
-export const SelectExplanation = () => {
+interface MessageProps {
+  children: React.ReactNode;
+}
+
+export const Message = ({ children }: MessageProps) => {
   const theme = useTheme();
   return (
     <div
@@ -11,7 +15,7 @@ export const SelectExplanation = () => {
         textAlign: "center",
       }}
     >
-      Select a row on the left to see the details.
+      {children}
     </div>
   );
 };
