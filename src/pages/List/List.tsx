@@ -48,7 +48,7 @@ export const List = () => {
   };
 
   const handleContactSelect = (id: string) => {
-    getContact(id, { skip: true }).catch(() => undefined);
+    getContact(id, true).catch(() => undefined);
   };
 
   const filteredRows = getFilteredRows(contacts, filters);
