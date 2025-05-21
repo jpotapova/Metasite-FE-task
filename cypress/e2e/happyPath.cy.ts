@@ -1,3 +1,17 @@
+const extractCellValues = (cells: JQuery) => {
+  return cells
+    .map((_, cell) => {
+      return Cypress.$(cell).text().trim();
+    })
+    .get();
+};
+
+const isSortedArray = (values: string[]) => {
+  return values.every(
+    (currentValue, index, array) => !index || array[index - 1] <= currentValue,
+  );
+};
+
 describe("Happy path spec", () => {
   it("a user can view details of the table row", () => {
     cy.visit("");
@@ -61,5 +75,20 @@ describe("Happy path spec", () => {
     cy.get('[data-testid="MenuIcon"]').click();
     cy.get('input[type="checkbox"]').eq(1).click();
     cy.get('[role="columnheader"]').contains("Name").should("not.exist");
+  });
+
+  it("a user can sort the contacts", () => {
+    cy.visit("");
+    cy.wait(200);
+
+    cy.get('[role="gridcell"][data-field="displayName"]').then(($cells) => {
+      const cellValues = extractCellValues($cells);
+      cy.wrap(isSortedArray(cellValues)).should("be.false");
+    });
+    cy.get('[role="columnheader"]').contains("Name").click();
+    cy.get('[role="gridcell"][data-field="displayName"]').then(($cells) => {
+      const cellValues = extractCellValues($cells);
+      cy.wrap(isSortedArray(cellValues)).should("be.true");
+    });
   });
 });
