@@ -1,47 +1,57 @@
-# Task for a candidate frontend developer
+# Contactify app
 
-### HTML/CSS
+This is an implementation of a [technical task](./docs/task-description.md) for a Front-End Position
+The implementation consists of 2 parts:
 
-Implement the presented design (appreciate the attention to the details) using HTML5 and CSS3.  
-Fonts used in the project:
+- the application itself
+- Storybook, which contains:
+  - components demo in isolation
+  - documentation articles
 
-- Open Sans
-- Roboto
-- FontAwesome
+Quick links:
 
-Download the design files from [here](https://github.com/Metasiteorg/frontend-task/tree/main/design).
+- [Selected approach motivation](./docs/approach-motivation.md)
+- [Tech stack](./docs/tech-stack.md)
 
-### JS
+## Starting the app
 
-Display contact list from the API.
-API ocumentation can be found [HERE](https://frontend-task-api.metasite.lt/docs/).
+Install the dependencies
 
-We will give additional points for:
+`bun install`
 
-- data sorting functionality by name and city (sort must be two-ways);
-- data filtering by name / city / activity;
-- functionality of displaying the data of the selected contact in the viewing area (separate loading of data according to the selected ID from the API would be an advantage);
-- table columns hide / show functionality;
-- linters with rules and code formatters;
-- tests;
-- deploying app to gh pages or any other environment;
-- React / Angular and a correct usage of its API ([react](https://reactjs.org/docs/react-api.html)/[angular](https://angular.io/api)).
+(or a package manager of your choice, e.g. `npm install`, in all the commands below `bun` can be replaced with `npm` or `npm run`)
 
-### We will evaluate:
+Start the app
 
-- functional and visual fulfilment of the task;
-- project architecture;
-- demonstrated technical knowledge;
-- compliance with code standards;
-- scalability (even though it's a small project, build it as it was meant to grow into a big one!).
+`bun dev`
 
-### Requirements for the given result:
+View the app locally [http://localhost:5173/](http://localhost:5173/)
 
-- support only the latest version of Chrome;
-- responsive design version is not required;
-- if you know some nice library that can make this task easier, feel free to use it!
+### App preview
 
-### Task submission:
+![Contactify app preview](./docs/assets/preview.png)
 
-The results must be submitted to jobs@metasite.net.  
-Source code must be placed in public version control platform (such as github, bitbucket and etc.).
+## Starting storybook
+
+Make sure that the dependencies are already installed and run
+
+`bun storybook`
+
+### Storybook preview
+
+![Storybook Preview](./docs/assets/storybook-preview.png)
+
+## Running the tests
+
+To run unit tests simply run `bun test`
+
+To run e2e tests
+
+Step1. Ensure that the app itself is running on http://localhost:5173/
+
+Step2.
+
+Run one of the commands:
+
+- for interactive mode `bun cypress open`
+- for command line mode `bun cypress run`
