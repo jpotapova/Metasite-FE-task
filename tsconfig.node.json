@@ -7,10 +7,6 @@
     "allowSyntheticDefaultImports": true,
     "strict": true
   },
-  "include": [
-    "vite.config.ts",
-    "vitest.config.ts",
-    ".storybook/preview.tsx",
-    "cypress"
-  ]
+  "include": ["vite.config.ts", "vitest.config.ts", "cypress"],
+  "exclude": [".storybook/preview.tsx"]
 }
