@@ -1,5 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import type { Decorator } from "@storybook/react";
+import type { Decorator,Meta, StoryObj } from "@storybook/react";
 
 import { ContactCard } from "./ContactCard";
 
